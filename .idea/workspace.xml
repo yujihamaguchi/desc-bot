@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b143432d-34c1-4ff6-aa49-b3a84a35c724" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/desc-bot.iml" afterPath="$PROJECT_DIR$/sp-desc.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/replstate.xml" afterPath="$PROJECT_DIR$/.idea/replstate.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project.clj" afterPath="$PROJECT_DIR$/project.clj" />
@@ -30,11 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="core.clj" pinned="false" current-in-tab="true">
+      <file leaf-file-name="core.clj" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/desc_bot/core.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="45" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
+            <state relative-caret-position="116">
+              <caret line="171" column="35" selection-start-line="171" selection-start-column="35" selection-end-line="171" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -50,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="project.clj" pinned="false" current-in-tab="false">
+      <file leaf-file-name="project.clj" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+            <state relative-caret-position="255">
+              <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -74,11 +72,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/project.clj" />
         <option value="$PROJECT_DIR$/test/sp_desc/core_test.clj" />
         <option value="$PROJECT_DIR$/src/sp_desc/core.clj" />
         <option value="$PROJECT_DIR$/test/desc_bot/core_test.clj" />
         <option value="$PROJECT_DIR$/src/desc_bot/core.clj" />
+        <option value="$PROJECT_DIR$/project.clj" />
       </list>
     </option>
   </component>
@@ -201,7 +199,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="C:/Program Files/Git/bin/git.exe" />
   </component>
-  <component name="ReplState" timestamp="1466340009537">{:repl-history {:ide [], :local [&quot;(print (command-handler \&quot;show *t01\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t*1\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(insert-or-update \&quot;foo\&quot; [\&quot;com\&quot; \&quot;s01\&quot; \&quot;t01\&quot;])&quot; &quot;(insert-or-update \&quot;baz\&quot; [\&quot;com\&quot; \&quot;*\&quot; \&quot;t01\&quot;])&quot; &quot;(insert-or-update \&quot;\&quot; [\&quot;com\&quot; \&quot;s01\&quot; \&quot;t01\&quot;])&quot; &quot;(insert-or-update \&quot;foo\&quot; [\&quot;com\&quot; \&quot;s01\&quot; \&quot;t02\&quot; \&quot;c01\&quot;])&quot; &quot;(find trim)&quot; &quot;(find \&quot;trim\&quot;)&quot; &quot;(find-doc \&quot;trim\&quot;)&quot; &quot;(print (command-handler \&quot;set *.t03 = 'table3dayo!'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set com.*.t03 = 'table3dayo!'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t03.*\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t03 c*\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set com.s01.t03.c03 = 'bazzzz'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show * c*\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show *\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t06\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t01\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show s01.t01\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show s02.t01\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show s01.t02\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show s01.*\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show *.t01\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show com.*.t01\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show *.*.t01\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show *.*.t01 c*\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show *.*.t02 c*\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show *.*.t03 c*\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set com.s01.t02.c01 = 'foobarbaz'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t02\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set com.s01.t02 = 'xxx'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;({:a 1 :b 2} :a)&quot; &quot;(null? ({:a 1 :b 2} :a))&quot; &quot;(find-doc #\&quot;\\?$\&quot;)&quot; &quot;(nil? ({:a 1 :b 2} :a))&quot; &quot;(nil? ({:a 1 :b 2} :x))&quot; &quot;(print (command-handler \&quot;show t*\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t02 c01\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set com.s0*.t03 = 'table3!!!'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set s0*.t03 = 'table3!!!'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set *.t03 = 'table3!!!'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set com.*.t03 = 'table3!!!'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set s0*.t03 = 'table3!'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set com.s0*.t03 = 'table3!'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set com.s*.t03 = 'table3!'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set com.*.t03 = 'table3!'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t03 c01\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t03 c03\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show s01.t03 c03\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set com.s01.t03.c02 = 'c_cmmnt01xx'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set com.s01.t03 = 'table3!!!'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set com.s02.t03 = 'table3!xx'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show *.t03\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show s02.t03\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show s01.t03\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show s01.t03 c02\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show com.s01.t03 c02\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t0*\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show *03\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show *02\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t0* c02\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show *03 c01\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t0* c0*\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show *03 c0*\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t03 *02\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t0* *02\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show *03 c02\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show *03 t01\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show *03 *t01*\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t03 *\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set c02 = 'foo'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set * c02 = 'foo'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set t03.c02 = 'foo'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set com.t03.c02 = 'foo'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set com.s01.t03.c02 = 'foo'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set com.s01.t03 = 'foo'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set * t03 = 'foox'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set * s01.t03 = 'foox'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set *.*.t03 = 'fooxxxx'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set com.*.*.t03 = 'fooxxxx'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set com.*.t03 = 'fooxxxx'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set com.s01.t03 = ''\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set *.*.t03 = 'barrrr'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show foo\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t03\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t03.c02\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t03 c02\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t03 c\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t03 c0*\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(#\&quot;.*\\w+.*\&quot; \&quot;foo\&quot;)&quot; &quot;(re-matches #\&quot;.*\\w+.*\&quot; \&quot;foo\&quot;)&quot; &quot;(re-matches #\&quot;.*\\w+.*\&quot; \&quot;\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t03 *cmm*\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t03 *cxx*\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(command-handler \&quot;show t03 *cxx*\&quot;)&quot; &quot;(command-handler \&quot;show t03 *cmm*\&quot;)&quot; &quot;(command-handler \&quot;show\&quot;)&quot; &quot;(use 'sp-desc.core)&quot; &quot;(use 'desc-bot.core)&quot; &quot;(command-handler \&quot;show t03 *cmx*\&quot;)&quot;], :remote []}}</component>
+  <component name="ReplState" timestamp="1466341866794">{:repl-history {:ide [], :local [&quot;(print (command-handler \&quot;show *t01\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t*1\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(insert-or-update \&quot;foo\&quot; [\&quot;com\&quot; \&quot;s01\&quot; \&quot;t01\&quot;])&quot; &quot;(insert-or-update \&quot;baz\&quot; [\&quot;com\&quot; \&quot;*\&quot; \&quot;t01\&quot;])&quot; &quot;(insert-or-update \&quot;\&quot; [\&quot;com\&quot; \&quot;s01\&quot; \&quot;t01\&quot;])&quot; &quot;(insert-or-update \&quot;foo\&quot; [\&quot;com\&quot; \&quot;s01\&quot; \&quot;t02\&quot; \&quot;c01\&quot;])&quot; &quot;(find trim)&quot; &quot;(find \&quot;trim\&quot;)&quot; &quot;(find-doc \&quot;trim\&quot;)&quot; &quot;(print (command-handler \&quot;set *.t03 = 'table3dayo!'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set com.*.t03 = 'table3dayo!'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t03.*\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t03 c*\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set com.s01.t03.c03 = 'bazzzz'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show * c*\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show *\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t06\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t01\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show s01.t01\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show s02.t01\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show s01.t02\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show s01.*\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show *.t01\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show com.*.t01\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show *.*.t01\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show *.*.t01 c*\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show *.*.t02 c*\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show *.*.t03 c*\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set com.s01.t02.c01 = 'foobarbaz'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t02\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set com.s01.t02 = 'xxx'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;({:a 1 :b 2} :a)&quot; &quot;(null? ({:a 1 :b 2} :a))&quot; &quot;(find-doc #\&quot;\\?$\&quot;)&quot; &quot;(nil? ({:a 1 :b 2} :a))&quot; &quot;(nil? ({:a 1 :b 2} :x))&quot; &quot;(print (command-handler \&quot;show t*\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t02 c01\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set com.s0*.t03 = 'table3!!!'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set s0*.t03 = 'table3!!!'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set *.t03 = 'table3!!!'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set com.*.t03 = 'table3!!!'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set s0*.t03 = 'table3!'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set com.s0*.t03 = 'table3!'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set com.s*.t03 = 'table3!'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set com.*.t03 = 'table3!'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t03 c01\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t03 c03\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show s01.t03 c03\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set com.s01.t03.c02 = 'c_cmmnt01xx'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set com.s01.t03 = 'table3!!!'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set com.s02.t03 = 'table3!xx'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show *.t03\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show s02.t03\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show s01.t03\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show s01.t03 c02\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show com.s01.t03 c02\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t0*\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show *03\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show *02\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t0* c02\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show *03 c01\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t0* c0*\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show *03 c0*\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t03 *02\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t0* *02\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show *03 c02\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show *03 t01\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show *03 *t01*\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t03 *\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set c02 = 'foo'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set * c02 = 'foo'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set t03.c02 = 'foo'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set com.t03.c02 = 'foo'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set com.s01.t03.c02 = 'foo'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set com.s01.t03 = 'foo'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set * t03 = 'foox'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set * s01.t03 = 'foox'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set *.*.t03 = 'fooxxxx'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set com.*.*.t03 = 'fooxxxx'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set com.*.t03 = 'fooxxxx'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set com.s01.t03 = ''\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;set *.*.t03 = 'barrrr'\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show foo\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t03\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t03.c02\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t03 c02\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t03 c\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t03 c0*\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(#\&quot;.*\\w+.*\&quot; \&quot;foo\&quot;)&quot; &quot;(re-matches #\&quot;.*\\w+.*\&quot; \&quot;foo\&quot;)&quot; &quot;(re-matches #\&quot;.*\\w+.*\&quot; \&quot;\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t03 *cmm*\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(print (command-handler \&quot;show t03 *cxx*\&quot;) \&quot;\\n---\\n\&quot;)&quot; &quot;(command-handler \&quot;show t03 *cxx*\&quot;)&quot; &quot;(command-handler \&quot;show t03 *cmm*\&quot;)&quot; &quot;(command-handler \&quot;show\&quot;)&quot; &quot;(use 'sp-desc.core)&quot; &quot;(use 'desc-bot.core)&quot; &quot;(command-handler \&quot;show t03 *cmx*\&quot;)&quot;], :remote []}}</component>
   <component name="RunManager" selected="Clojure REPL.Leiningen REPL">
     <configuration default="false" name="core_test" type="ClojureScriptRunConfiguration" factoryName="Clojure Script" temporary="true">
       <module name="desc-bot" />
@@ -745,12 +743,27 @@
       <workItem from="1466148174855" duration="166000" />
       <workItem from="1466294325339" duration="8301000" />
       <workItem from="1466312666040" duration="9159000" />
-      <workItem from="1466322699459" duration="1463000" />
+      <workItem from="1466322699459" duration="3319000" />
     </task>
+    <task id="LOCAL-00001" summary="一回上げる">
+      <created>1466340036092</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1466340036092</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Webで使えるようにした">
+      <created>1466341268692</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1466341268692</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27431000" />
+    <option name="totallyTimeSpent" value="29287000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -763,15 +776,16 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5063966" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="REPL" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32900432" sideWeight="0.50852877" order="11" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32900432" sideWeight="0.4914712" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="REPL" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32900432" sideWeight="0.510661" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32900432" sideWeight="0.48933902" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Leiningen" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42207792" sideWeight="0.48933902" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42207792" sideWeight="0.48720682" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -782,7 +796,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -795,6 +808,11 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="一回上げる" />
+    <MESSAGE value="Webで使えるようにした" />
+    <option name="LAST_COMMIT_MESSAGE" value="Webで使えるようにした" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1157,14 +1175,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/clojure/clojure/1.8.0/clojure-1.8.0.jar!/clojure/test.clj">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="197">
@@ -1204,8 +1214,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/desc_bot/core.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="45" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
+        <state relative-caret-position="116">
+          <caret line="171" column="35" selection-start-line="171" selection-start-column="35" selection-end-line="171" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
           <folding />
         </state>
       </provider>
