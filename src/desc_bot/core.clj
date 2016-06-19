@@ -3,6 +3,11 @@
     [clojure.core.match :refer [match]]
     [clojure.java.jdbc :as jdbc]
     [clojure.string :as str]
+    [compojure.core :refer :all]
+    [compojure.route :as route]
+    [compojure.handler :as handler]
+    [ring.util.response :refer [response]]
+    [ring.middleware.json :as json]
     [clojure.java.io :as io]))
 
 ; Constants
@@ -12,9 +17,9 @@
 
 ;; Common DB
 (def mysql-db {:subprotocol "mysql"
-               :subname     "//localhost:3307/ub_information_schema"
-               :user        "system"
-               :password    "system"})
+               :subname     "//localhost:3306/ub_information_schema"
+               :user        "dbadmin"
+               :password    "administrator"})
 
 (defn replace-wildcard [s]
   (str/replace s "*" "%"))
@@ -177,3 +182,13 @@
         result-str
         "No result."))
     (catch Exception _ "Command(pattern) not supported.")))
+
+;; Web Routing
+(defroutes app-routes
+           (POST "/" [text] (response {:text (command-handler text)}))
+           (route/not-found "Not Found"))
+
+(def app
+  (-> (handler/api app-routes)
+      (json/wrap-json-body)
+      (json/wrap-json-response)))
