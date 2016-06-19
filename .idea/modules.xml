@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/desc-bot.iml" filepath="$PROJECT_DIR$/desc-bot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sp-desc.iml" filepath="$PROJECT_DIR$/sp-desc.iml" />
     </modules>
   </component>
 </project>

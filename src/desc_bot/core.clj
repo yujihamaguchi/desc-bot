@@ -138,7 +138,7 @@
 ; Parse
 (defn parse-set-pattern [set-pattern]
   (let [[restriction-str comment] (str/split set-pattern #"\s*=\s*")
-        restriction-vals (str/split restriction-str #"\.")]
+        restriction-vals (map str/trim (str/split restriction-str #"\."))]
     (if (or (empty? comment) (empty? (first restriction-vals))) (throw (IllegalStateException.)))
     [(str/replace comment #"['\"]" "") restriction-vals]))
 
@@ -164,13 +164,16 @@
 ; Main
 (defn command-handler [command-text]
   (try
-    (str/join "\n"
-              (for [result (apply-command command-text)]
-                (str "set "
-                     (str/replace (str/join "." [(:instance_name result) (:table_schema result) (:table_name result) (:column_name result)]) #"\.$" "")
-                     " = "
-                     "'"
-                     (:table_comment result)
-                     (:column_comment result)
-                     "'")))
-    (catch Exception _ "That command pattern is not supported.")))
+    (let [result-str (str/join "\n"
+                               (for [result (apply-command command-text)]
+                                 (str "set "
+                                      (str/replace (str/join "." [(:instance_name result) (:table_schema result) (:table_name result) (:column_name result)]) #"\.$" "")
+                                      " = "
+                                      "'"
+                                      (:table_comment result)
+                                      (:column_comment result)
+                                      "'")))]
+      (if (re-find #"\w" result-str)
+        result-str
+        "No result."))
+    (catch Exception _ "Command(pattern) not supported.")))
