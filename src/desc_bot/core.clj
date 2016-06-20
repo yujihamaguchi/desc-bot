@@ -180,12 +180,17 @@
                                       "'")))]
       (if (re-find #"\w" result-str)
         result-str
-        "No result."))
-    (catch Exception _ "Command(pattern) not supported.")))
+        "No results"))
+    (catch Exception _ "Command Not Supported")))
 
 ;; Web Routing
 (defroutes app-routes
-           (POST "/" [text] (response {:text (command-handler text)}))
+           (POST "/" [token team_domain channel_name text]
+             (if (and (= token "")
+                      (= team_domain "")
+                      (= channel_name ""))
+               (response {:text (command-handler text)})
+               (response {:text "Authentication Failed"})))
            (route/not-found "Not Found"))
 
 (def app
