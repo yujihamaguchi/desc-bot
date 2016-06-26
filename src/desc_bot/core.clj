@@ -153,7 +153,9 @@
 
 ; Command
 (defn ^:dynamic search-comment [restriction-strs]
-  (select-like restriction-strs))
+  (if (not (re-find #"\w" (apply str restriction-strs)))
+    (throw (IllegalStateException. "Wildcard Only Search Not Allowed"))
+    (select-like restriction-strs)))
 
 (defn ^:dynamic set-comment [set-pattern]
   (apply insert-or-update (parse-set-pattern set-pattern)))
@@ -174,19 +176,21 @@
   (str "set "
        (str/replace (str/join "." [(:instance_name result) (:table_schema result) (:table_name result) (:column_name result)]) #"\.$" "")
        " = "
-       "'"
+       "\""
        (:table_comment result)
        (:column_comment result)
-       "'"))
+       "\""))
 
 ; Main
 (defn command-handler [command-text]
   (try
-    (let [result-str (str/join "\n" (for [result (apply-command command-text)] (struct-set-command-text result)))]
+    (let [result-str (str/join "\n" (for [result (apply concat (for [command-text (str/split-lines command-text)] (apply-command command-text)))] (struct-set-command-text result)))]
       (if (re-find #"\w" result-str)
         result-str
         "No results"))
-    (catch Exception _ "Command Not Supported")))
+    (catch Exception e
+      (or (.getMessage e)
+          "Command Not Supported\n\nshow [db_abbreviation.][schema_pattern.]table_pattern {column_pattern | comment_pattern}\nset {db_abbreviation | *}.{schema_name | *}.{table_name | *}[.column_name] = \"comment\"\n"))))
 
 ;; Web Routing
 (defroutes app-routes
