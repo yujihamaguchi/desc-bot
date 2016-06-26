@@ -8,6 +8,7 @@
     [compojure.handler :as handler]
     [ring.util.response :refer [response]]
     [ring.middleware.json :as json]
+    [ring.middleware.params :as params]
     [clojure.java.io :as io]))
 
 ; Constants
@@ -17,9 +18,12 @@
 
 ;; Common DB
 (def mysql-db {:subprotocol "mysql"
-               :subname     "//localhost:3306/ub_information_schema"
-               :user        "dbadmin"
-               :password    "administrator"})
+               ;:subname     "//localhost:3306/ub_information_schema?useUnicode=true&characterEncoding=utf8"
+               ;:user        "dbadmin"
+               ;:password    "administrator"})
+               :subname     "//localhost:3307/ub_information_schema?useUnicode=true&characterEncoding=utf8"
+               :user        "system"
+               :password    "system"})
 
 (defn replace-wildcard [s]
   (str/replace s "*" "%"))
@@ -144,7 +148,8 @@
 (defn parse-set-pattern [set-pattern]
   (let [[restriction-str comment] (str/split set-pattern #"\s*=\s*")
         restriction-vals (map str/trim (str/split restriction-str #"\."))]
-    (if (or (empty? comment) (empty? (first restriction-vals))) (throw (IllegalStateException.)))
+    (if (or (empty? comment) (empty? (first restriction-vals)))
+      (throw (IllegalStateException.)))
     [(str/replace comment #"['\"]" "") restriction-vals]))
 
 ; Command
@@ -185,12 +190,13 @@
 
 ;; Web Routing
 (defroutes app-routes
-           (POST "/" [token team_domain channel_name text]
-             (if (and (= token "")
-                      (= team_domain "")
-                      (= channel_name ""))
-               (response {:text (command-handler text)})
-               (response {:text "Authentication Failed"})))
+           (POST "/" [token team_domain channel_name text user_name]
+             (when (not (= user_name "slackbot"))
+               (if (and (= token "")
+                        (= team_domain "uzabase")
+                        (= channel_name "yuji_hamaguchi"))
+                 (response {:text (command-handler text)})
+                 (response {:text "Authentication Failed"}))))
            (route/not-found "Not Found"))
 
 (def app
