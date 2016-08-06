@@ -8,7 +8,6 @@
     [compojure.handler :as handler]
     [ring.util.response :refer [response]]
     [ring.middleware.json :as json]
-    [ring.middleware.params :as params]
     [clojure.java.io :as io]))
 
 ; Constants
@@ -17,13 +16,16 @@
 (def NullValue "|NULLVALUE|")
 
 ;; Common DB
+; development
 (def mysql-db {:subprotocol "mysql"
-               ;:subname     "//localhost:3306/ub_information_schema?useUnicode=true&characterEncoding=utf8"
-               ;:user        "dbadmin"
-               ;:password    "administrator"})
                :subname     "//localhost:3307/ub_information_schema?useUnicode=true&characterEncoding=utf8"
                :user        "system"
                :password    "system"})
+; production
+(def mysql-db {:subprotocol "mysql"
+               :subname     "//localhost:3306/ub_information_schema?useUnicode=true&characterEncoding=utf8"
+               :user        "dbadmin"
+               :password    "administrator"})
 
 (defn replace-wildcard [s]
   (str/replace s "*" "%"))
@@ -146,14 +148,14 @@
 
 ; Parse
 (defn parse-set-pattern [set-pattern]
-  (let [[restriction-str comment] (str/split set-pattern #"\s*=\s*")
+  (let [[restriction-str comment] (str/split set-pattern #"\s*=\s*" 2)
         restriction-vals (map str/trim (str/split restriction-str #"\."))]
     (if (or (empty? comment) (empty? (first restriction-vals))) (throw (IllegalStateException.)))
     [(str/replace comment #"['\"]" "") restriction-vals]))
 
 ; Command
 (defn ^:dynamic search-comment [restriction-strs]
-  (if (not (re-find #"\w" (apply str restriction-strs)))
+  (if (not (re-find #"[^\*]" (apply str restriction-strs)))
     (throw (IllegalStateException. "Wildcard Only Search Not Allowed"))
     (select-like restriction-strs)))
 
@@ -165,10 +167,11 @@
   (match [command]
          ["show"] (search-comment (str/split option #"\s+"))
          ["set"] (set-comment option)
+         ["help"] (throw (IllegalStateException. (slurp (io/resource "help.txt"))))
          :else (throw (IllegalStateException.))))
 
 (defn apply-command [command-text]
-  (let [command (re-find #"\s*\w+\s+" command-text)
+  (let [command (or (re-find #"\s*\w+\s+" command-text) (re-find #"\s*help\s*" command-text))
         option (subs command-text (count command))]
     (command-route (str/trim command) (str/trim option))))
 
@@ -177,20 +180,35 @@
        (str/replace (str/join "." [(:instance_name result) (:table_schema result) (:table_name result) (:column_name result)]) #"\.$" "")
        " = "
        "\""
-       (:table_comment result)
+       (when (not (and (contains? result :table_name) (contains? result :column_name))) (:table_comment result))
        (:column_comment result)
        "\""))
 
+(defn execute-command [all-command-text]
+  (for [command-text (str/split-lines all-command-text)] (apply-command command-text)))
+
+(defn struct-result-str [all-command-text]
+  (str
+    "`"
+    all-command-text
+    "`"
+    "\n"
+    "```"
+    (str/join
+      "\n"
+      (for [result (apply concat (execute-command all-command-text))] (struct-set-command-text result)))
+    "```"))
+
 ; Main
-(defn command-handler [command-text]
+(defn command-handler [all-command-text]
   (try
-    (let [result-str (str/join "\n" (for [result (apply concat (for [command-text (str/split-lines command-text)] (apply-command command-text)))] (struct-set-command-text result)))]
+    (let [result-str (struct-result-str all-command-text)]
       (if (re-find #"\w" result-str)
         result-str
         "No results"))
     (catch Exception e
       (or (.getMessage e)
-          "Command Not Supported\n\nshow [db_abbreviation.][schema_pattern.]table_pattern {column_pattern | comment_pattern}\nset {db_abbreviation | *}.{schema_name | *}.{table_name | *}[.column_name] = \"comment\"\n"))))
+          (str "Command Not Supported\n" (slurp (io/resource "./rexources/help.txt")))))))
 
 ;; Web Routing
 (defroutes app-routes
@@ -198,7 +216,7 @@
              (when (not (= user_name "slackbot"))
                (if (and (= token "qcMyEI7XOeDcFa3woJrOXQvP")
                         (= team_domain "uzabase")
-                        (= channel_name "yuji_hamaguchi"))
+                        (= channel_name "sp-db-desc"))
                  (response {:text (command-handler text)})
                  (response {:text "Authentication Failed"}))))
            (route/not-found "Not Found"))

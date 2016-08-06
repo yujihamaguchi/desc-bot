@@ -171,6 +171,11 @@
 
 (deftest ut-parse-set-pattern
   (is (= ["b" ["a"]] (parse-set-pattern "a='b'")))
+  (is (= ["=b" ["a"]] (parse-set-pattern "a='=b'")))
+  (is (= ["==b" ["a"]] (parse-set-pattern "a='==b'")))
+  (is (= ["b=" ["a"]] (parse-set-pattern "a='b='")))
+  (is (= ["b=c" ["a"]] (parse-set-pattern "a='b=c'")))
+  (is (= ["b=c=d" ["a"]] (parse-set-pattern "a='b=c=d'")))
   (is (= ["b" ["a"]] (parse-set-pattern "a = 'b'")))
   (is (= ["b" ["a"]] (parse-set-pattern "a=b")))
   (is (= ["" ["a"]] (parse-set-pattern "a=''")))

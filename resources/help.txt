@@ -1,0 +1,34 @@
+# コマンド定義
+show [db_abbreviation.][schema_pattern.]table_pattern {column_pattern | comment_pattern}
+set {db_abbreviation | *}.{schema_name | *}.{table_name | *}[.column_name] = "[comment]"
+
+## 凡例
+db_abbreviation: {common | fnac | user}
+*_pattern      : ワイルドカード('*')を用いて部分一致検索可能
+
+# コマンド例
+## 検索
+1. テーブル名検索(ヒットしたテーブルがひとつであれば、属性定義も返される)
+show corp_bss
+
+2. テーブル名部分一致検索(財務DBの全てのスキーマで、テーブル名が"_err"で終わるもの)
+show fnac.*.*_err
+
+3. 属性名部分一致検索(共通DBのsppedaスキーマで、属性名が"idst_"で始まるもの)
+show common.speeda.* idst_*
+
+4. コメント検索(全てのDBの全てのスキーマで、コメントが"グローバルID"のもの)
+show *.*.* グローバルID
+
+## コメント入力
+1. テーブルコメント入力
+set common.speeda.corp_bss = "企業マスタ"
+
+2. 属性コメント入力
+set common.speeda.corp_bss.global_id = "グローバルID"
+
+2-1. テーブル間で共通するコメントとして登録可能
+set common.speeda.*.global_id = "グローバルID"
+
+2-1. 更に、スキーマ間で共通するコメントとしても登録可能
+set common.*.*.global_id = "グローバルID"
