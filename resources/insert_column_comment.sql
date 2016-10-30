@@ -3,7 +3,8 @@ INSERT INTO column_comment (
   table_schema,
   table_name,
   column_name,
-  column_comment
+  column_comment,
+  user_name
 ) SELECT
   *
 FROM
@@ -13,7 +14,8 @@ FROM
       ? AS table_schema,
       ? AS table_name,
       ? AS column_name,
-      ? AS column_comment
+      ? AS column_comment,
+      ? AS user_name
   ) r1
 WHERE
   NOT EXISTS (

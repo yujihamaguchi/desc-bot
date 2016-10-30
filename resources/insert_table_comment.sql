@@ -2,8 +2,10 @@ INSERT INTO table_comment (
   instance_name,
   table_schema,
   table_name,
-  table_comment
-) SELECT
+  table_comment,
+  user_name
+)
+SELECT
   *
 FROM
   (
@@ -11,7 +13,8 @@ FROM
       ? AS instance_name,
       ? AS table_schema,
       ? AS table_name,
-      ? AS table_comment
+      ? AS table_comment,
+      ? AS user_name
   ) r1
 WHERE
   NOT EXISTS (

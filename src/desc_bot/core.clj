@@ -39,7 +39,7 @@
 ; DML
 (defmulti select (fn [_ restrict-columns] (set (keys restrict-columns))))
 (defmulti select-like (fn [patterns] (count patterns)))
-(defmulti insert-or-update (fn [_ keys] (count keys)))
+(defmulti insert-or-update (fn [_ keys _] (count keys)))
 
 (defmethod select :default [_ _]
   (throw (IllegalArgumentException.)))
@@ -47,7 +47,7 @@
 (defmethod select-like :default [_]
   (throw (IllegalArgumentException.)))
 
-(defmethod insert-or-update :default [_ _]
+(defmethod insert-or-update :default [_ _ _]
   (throw (IllegalArgumentException.)))
 
 (defmethod select #{:instance_name :table_schema :table_name} [view-name restriction-vals]
@@ -78,12 +78,13 @@
         (concat result (select Columns {:instance_name instance-name :table_schema table-schema :table_name table-name})))
       result)))
 
-(defmethod insert-or-update 3 [comment restriction-vals]
+(defmethod insert-or-update 3 [comment restriction-vals user-name]
   (let [[instance-name table-schema table-name] restriction-vals
         comment (if (empty? comment) nil comment)]
     (jdbc/execute! mysql-db [
                              (slurp (io/resource "update_table_comment.sql"))
                              comment
+                             user-name
                              NullValue
                              (complete-null-literal NullValue instance-name)
                              NullValue
@@ -94,7 +95,8 @@
                              (complete-null-literal nil instance-name)
                              (complete-null-literal nil table-schema)
                              table-name
-                             comment])
+                             comment
+                             user-name])
     (select Tables {:instance_name instance-name :table_schema table-schema :table_name table-name})))
 
 ;; columns
@@ -124,12 +126,13 @@
                           column]
                 {:row-fn identity})))
 
-(defmethod insert-or-update 4 [comment restriction-vals]
+(defmethod insert-or-update 4 [comment restriction-vals user-name]
   (let [[instance-name table-schema table-name column-name] restriction-vals
         comment (if (empty? comment) nil comment)]
     (jdbc/execute! mysql-db [
                              (slurp (io/resource "update_column_comment.sql"))
                              comment
+                             user-name
                              NullValue
                              (complete-null-literal NullValue instance-name)
                              NullValue
@@ -143,7 +146,8 @@
                              (complete-null-literal nil table-schema)
                              (complete-null-literal nil table-name)
                              column-name
-                             comment])
+                             comment
+                             user-name])
     (select Columns {:instance_name instance-name :table_schema table-schema :table_name table-name :column_name column-name})))
 
 ; Parse
@@ -159,8 +163,8 @@
     (throw (IllegalStateException. "Wildcard Only Search Not Allowed"))
     (select-like restriction-strs)))
 
-(defn ^:dynamic set-comment [set-pattern]
-  (apply insert-or-update (parse-set-pattern set-pattern)))
+(defn ^:dynamic set-comment [set-pattern user-name]
+  (apply insert-or-update (conj (parse-set-pattern set-pattern) user-name)))
 
 (defn enclose-single-backticks [str]
   (str "`" str "`"))
@@ -172,17 +176,17 @@
   (slurp (io/resource "help.txt")))
 
 ; Routing
-(defn ^:dynamic command-route [command option]
+(defn ^:dynamic command-route [command option user-name]
   (match [command]
          ["show"] (search-comment (str/split option #"\s+"))
-         ["set"] (set-comment option)
+         ["set"] (set-comment option user-name)
          ["help"] (throw (IllegalStateException. (get-help-txt)))
          :else (throw (IllegalStateException.))))
 
-(defn apply-command [command-text]
+(defn apply-command [command-text user-name]
   (let [command (or (re-find #"\s*\w+\s+" command-text) (re-find #"\s*help\s*" command-text))
         option (subs command-text (count command))]
-    (command-route (str/trim command) (str/trim option))))
+    (command-route (str/trim command) (str/trim option) user-name)))
 
 (defn struct-set-command-text [result]
   (str "set "
@@ -193,23 +197,23 @@
        (:column_comment result)
        "\""))
 
-(defn execute-command [all-command-text]
-  (for [command-text (str/split-lines all-command-text)] (apply-command command-text)))
+(defn execute-command [all-command-text user-name]
+  (for [command-text (str/split-lines all-command-text)] (apply-command command-text user-name)))
 
-(defn struct-result-str [all-command-text]
+(defn struct-result-str [all-command-text user-name]
   (str
     (enclose-single-backticks all-command-text)
     "\n"
     (enclose-triple-backticks
-      (let [result-all (for [result (apply concat (execute-command all-command-text))] (struct-set-command-text result))]
+      (let [result-all (for [result (apply concat (execute-command all-command-text user-name))] (struct-set-command-text result))]
         (if (zero? (count result-all))
           "No results"
           (str/join "\n" result-all))))))
 
 ; Main
-(defn command-handler [all-command-text]
+(defn command-handler [all-command-text user-name]
   (try
-    (struct-result-str all-command-text)
+    (struct-result-str all-command-text user-name)
     (catch Exception e
       (or (.getMessage e)
           (str "Command Not Supported\n" (get-help-txt))))))
@@ -221,7 +225,7 @@
                (if (and (= token "qcMyEI7XOeDcFa3woJrOXQvP")
                         (= team_domain "uzabase")
                         (= channel_name "sp-db-desc"))
-                 (response {:text (command-handler text)})
+                 (response {:text (command-handler text user_name)})
                  (response {:text "Authentication Failed"}))))
            (route/not-found "Not Found"))
 
