@@ -22,10 +22,10 @@
                :user        "system"
                :password    "system"})
 ; production
-(def mysql-db {:subprotocol "mysql"
-               :subname     "//localhost:3306/ub_information_schema?useUnicode=true&characterEncoding=utf8"
-               :user        "dbadmin"
-               :password    "administrator"})
+;(def mysql-db {:subprotocol "mysql"
+;               :subname     "//localhost:3306/ub_information_schema?useUnicode=true&characterEncoding=utf8"
+;               :user        "dbadmin"
+;               :password    "administrator"})
 
 (defn replace-wildcard [s]
   (str/replace s "*" "%"))
@@ -162,12 +162,21 @@
 (defn ^:dynamic set-comment [set-pattern]
   (apply insert-or-update (parse-set-pattern set-pattern)))
 
+(defn enclose-single-backticks [str]
+  (str "`" str "`"))
+
+(defn enclose-triple-backticks [str]
+  (str "```" str "```"))
+
+(defn get-help-txt []
+  (slurp (io/resource "help.txt")))
+
 ; Routing
 (defn ^:dynamic command-route [command option]
   (match [command]
          ["show"] (search-comment (str/split option #"\s+"))
          ["set"] (set-comment option)
-         ["help"] (throw (IllegalStateException. (slurp (io/resource "help.txt"))))
+         ["help"] (throw (IllegalStateException. (get-help-txt)))
          :else (throw (IllegalStateException.))))
 
 (defn apply-command [command-text]
@@ -189,26 +198,21 @@
 
 (defn struct-result-str [all-command-text]
   (str
-    "`"
-    all-command-text
-    "`"
+    (enclose-single-backticks all-command-text)
     "\n"
-    "```"
-    (str/join
-      "\n"
-      (for [result (apply concat (execute-command all-command-text))] (struct-set-command-text result)))
-    "```"))
+    (enclose-triple-backticks
+      (let [result-all (for [result (apply concat (execute-command all-command-text))] (struct-set-command-text result))]
+        (if (zero? (count result-all))
+          "No results"
+          (str/join "\n" result-all))))))
 
 ; Main
 (defn command-handler [all-command-text]
   (try
-    (let [result-str (struct-result-str all-command-text)]
-      (if (re-find #"\w" result-str)
-        result-str
-        "No results"))
+    (struct-result-str all-command-text)
     (catch Exception e
       (or (.getMessage e)
-          (str "Command Not Supported\n" (slurp (io/resource "./rexources/help.txt")))))))
+          (str "Command Not Supported\n" (get-help-txt))))))
 
 ;; Web Routing
 (defroutes app-routes

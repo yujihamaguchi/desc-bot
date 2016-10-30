@@ -101,6 +101,9 @@
   (is (= (select-like ["t01"])
          [{:instance_name "com" :table_schema "s01" :table_name "t01" :table_logical_name nil :table_comment "t_cmmnt01"}
           {:instance_name "com" :table_schema "s02" :table_name "t01" :table_logical_name nil :table_comment "t_cmmnt01"}]))
+  (is (= (select-like ["t_cmmnt02"])
+         [{:instance_name "com" :table_schema "s01" :table_name "t01" :table_logical_name nil :table_comment "t_cmmnt01"}
+          {:instance_name "com" :table_schema "s02" :table_name "t01" :table_logical_name nil :table_comment "t_cmmnt01"}]))
   (is (= (select-like ["t01*"])
          [{:instance_name "com" :table_schema "s01" :table_name "t01" :table_logical_name nil :table_comment "t_cmmnt01"}
           {:instance_name "com" :table_schema "s02" :table_name "t01" :table_logical_name nil :table_comment "t_cmmnt01"}]))
